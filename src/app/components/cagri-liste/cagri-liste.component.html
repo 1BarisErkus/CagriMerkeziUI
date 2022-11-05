@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <h4>Çağrı Listesi</h4>
+                <div class="input-group">
+                    <label class="input-group-text" for="ara">Arama</label>
+                    <input type="text" class="form-control" id="ara" [(ngModel)]="inputArama" (keyup)="kayitAra(inputArama)">
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Personel</th>
+                            <th>Müşteri Adı</th>
+                            <th>Müşteri Telefonu</th>
+                            <th>Konu</th>
+                            <th>Açıklama</th>
+                            <th>Ücret</th>
+                            <th>Çağrı Tarihi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cagriListe">
+                            <td>{{item.ID}}</td>
+                            <td>{{item.PERSONEL_ID}}</td>
+                            <td>{{item.CUSTOMER_NAME}}</td>
+                            <td>{{item.CUSTOMER_PHONE}}</td>
+                            <td>{{item.SUBJECT}}</td>
+                            <td>{{item.DESCRIPTION}}</td>
+                            <td>{{item.PRICE}}</td>
+                            <td>{{item.CALL_DATE}}</td>
+                            <td><button class="btn btn-primary"
+                                (click)="editCagri(item.ID)">Değiştir</button></td>
+                            <td><button class="btn btn-danger" (click)="deleteCagri(item.ID)">Sil</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <p>Product by Barış Erkuş</p>
+            </div>
+        </div>
+    </div>
+</div>

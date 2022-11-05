@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Kayıt Ekleme-Düzenleme Ekranı
+            </div>
+            <div class="card-body">
+                <form [formGroup]="fgKayit">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="personel_id">Personel ID</label>
+                        <select class="form-select" id="personel_id" formControlName="personel_id">
+                            <option *ngFor="let item of personel" value="{{item.ID}}">{{item.NAME}}</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="customer_name">Müşteri Adı</label>
+                        <input type="text" class="form-control" id="customer_name" formControlName="customer_name"
+                            maxlength="50">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="customer_phone">Müşteri Telefonu</label>
+                        <input type="text" class="form-control" id="customer_phone" formControlName="customer_phone"
+                            maxlength="20">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="subject">Konu</label>
+                        <input type="text" class="form-control" id="subject" formControlName="subject" maxlength="50">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="description">Açıklama</label>
+                        <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="price">Ücret</label>
+                        <input type="text" class="form-control" id="price" formControlName="price">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="call_date">Kayıt Tarihi</label>
+                        <input type="date" class="form-control" id="call_date" formControlName="call_date" readonly>
+                    </div>
+                    <div class="d-grid gap-3">
+                        <input type="submit" class="btn btn-warning py-3 mb-1" (click)="add_update_gorev()"
+                            value="Kaydet">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <p>Lütfen boş alan bırakmayınız.</p>
+            </div>
+        </div>
+    </div>
+</div>
